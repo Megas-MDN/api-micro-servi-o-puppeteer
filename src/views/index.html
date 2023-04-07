@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: black;
+        color: white;
+      }
+      #container,
+      #form {
+        width: 90%;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #form {
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+      }
+      #input {
+        width: 30%;
+        padding: 8px;
+        flex: 2;
+        border-radius: 0px 10px 10px 0px;
+        color: white;
+        font-weight: 400;
+        letter-spacing: 1.3px;
+        font-size: 0.8rem;
+      }
+      #btn {
+        flex: 0.5;
+        border-radius: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        font-weight: 500;
+      }
+
+      #pre::-webkit-scrollbar {
+        display: none;
+      }
+
+      #pre {
+        color: white;
+        word-wrap: break-word;
+        width: 90%;
+        overflow: auto;
+        scroll-behavior: auto;
+      }
+
+      .spinner.center {
+        display: none;
+      }
+
+      .spinner {
+        font-size: 28px;
+        position: relative;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+      }
+
+      .spinner .spinner-blade {
+        position: absolute;
+        left: 0.4629em;
+        bottom: 0;
+        width: 0.074em;
+        height: 0.2777em;
+        border-radius: 0.0555em;
+        background-color: transparent;
+        -webkit-transform-origin: center -0.2222em;
+        -ms-transform-origin: center -0.2222em;
+        transform-origin: center -0.2222em;
+        animation: spinner-fade9234 1s infinite linear;
+      }
+
+      .spinner .spinner-blade:nth-child(1) {
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      .spinner .spinner-blade:nth-child(2) {
+        -webkit-animation-delay: 0.083s;
+        animation-delay: 0.083s;
+        -webkit-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+      }
+
+      .spinner .spinner-blade:nth-child(3) {
+        -webkit-animation-delay: 0.166s;
+        animation-delay: 0.166s;
+        -webkit-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+        transform: rotate(60deg);
+      }
+
+      .spinner .spinner-blade:nth-child(4) {
+        -webkit-animation-delay: 0.249s;
+        animation-delay: 0.249s;
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .spinner .spinner-blade:nth-child(5) {
+        -webkit-animation-delay: 0.332s;
+        animation-delay: 0.332s;
+        -webkit-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+        transform: rotate(120deg);
+      }
+
+      .spinner .spinner-blade:nth-child(6) {
+        -webkit-animation-delay: 0.415s;
+        animation-delay: 0.415s;
+        -webkit-transform: rotate(150deg);
+        -ms-transform: rotate(150deg);
+        transform: rotate(150deg);
+      }
+
+      .spinner .spinner-blade:nth-child(7) {
+        -webkit-animation-delay: 0.498s;
+        animation-delay: 0.498s;
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .spinner .spinner-blade:nth-child(8) {
+        -webkit-animation-delay: 0.581s;
+        animation-delay: 0.581s;
+        -webkit-transform: rotate(210deg);
+        -ms-transform: rotate(210deg);
+        transform: rotate(210deg);
+      }
+
+      .spinner .spinner-blade:nth-child(9) {
+        -webkit-animation-delay: 0.664s;
+        animation-delay: 0.664s;
+        -webkit-transform: rotate(240deg);
+        -ms-transform: rotate(240deg);
+        transform: rotate(240deg);
+      }
+
+      .spinner .spinner-blade:nth-child(10) {
+        -webkit-animation-delay: 0.747s;
+        animation-delay: 0.747s;
+        -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
+      }
+
+      .spinner .spinner-blade:nth-child(11) {
+        -webkit-animation-delay: 0.83s;
+        animation-delay: 0.83s;
+        -webkit-transform: rotate(300deg);
+        -ms-transform: rotate(300deg);
+        transform: rotate(300deg);
+      }
+
+      .spinner .spinner-blade:nth-child(12) {
+        -webkit-animation-delay: 0.913s;
+        animation-delay: 0.913s;
+        -webkit-transform: rotate(330deg);
+        -ms-transform: rotate(330deg);
+        transform: rotate(330deg);
+      }
+      .get {
+        display: block;
+        background: green;
+        font-size: 1.13rem;
+        padding: 6px;
+        border-radius: 10px 0px 0 10px;
+        margin-right: -16px;
+      }
+
+      @keyframes spinner-fade9234 {
+        0% {
+          background-color: #69717d;
+        }
+
+        100% {
+          background-color: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>API de atualização</h1>
+    <h3>URL atual</h3>
+    <h4 id="urlBase">URL</h4>
+    <main id="container">
+      <form action="" id="form">
+        <div class="get">GET</div>
+        <input type="text" disabled id="input" />
+        <button id="btn">Request</button>
+      </form>
+      <div class="spinner center loader">
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+      </div>
+      <pre id="pre"></pre>
+    </main>
+    <script>
+      document.getElementById('urlBase').textContent = document.URL;
+      document.getElementById('input').value = document.URL + 'check';
+      const btn = document.getElementById('btn');
+      const loader = document.getElementsByClassName('loader')[0];
+
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const input = document.getElementById('input').value;
+        const pre = document.getElementById('pre');
+        loader.style.display = 'block';
+        pre.style.textAlign = 'center';
+        pre.innerHTML = 'Carregando...';
+        console.log(input);
+        const result = await (await fetch(input)).json();
+        loader.style.display = 'none';
+        pre.style.textAlign = 'left';
+        pre.innerText = JSON.stringify(result, null, 2);
+      });
+    </script>
+  </body>
+</html>
