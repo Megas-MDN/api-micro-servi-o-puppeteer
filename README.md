@@ -80,8 +80,6 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ## 📚 Documentação da API
 
-#### Retorna todos os itens em ordem alfabética com o limit de 20 elementos.
-
 ```http
   GET /check
 ```
