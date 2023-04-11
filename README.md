@@ -74,6 +74,8 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 `URL_SOURCE`=url_b3_link_direto
 
+`STR_INTERESSE`=Lista Completa de Séries Autorizadas
+
 🌟 Pronto para usar!
 
 <hr>
