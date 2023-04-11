@@ -26,24 +26,42 @@ app.get('/check', async (_req, res, next) => {
   try {
     let message = 'Base already updated!';
     let srcOld;
+    let response;
 
     const [sourceBase, sourceB3] = await Promise.all([
       getLinkBase(`${urlBase}/source`),
       getLinkB3(urlB3),
     ]);
 
+    if (!sourceB3 || !sourceB3.src)
+      return next({
+        status: 404,
+        message: 'Não foi possível encontrar o link.',
+      });
+
     if (sourceBase.src !== sourceB3.src) {
       message = 'Base needs to be updated!!!!';
       console.log(message);
-      postSource(`${urlBase}/data`, sourceB3, hashPost);
-      console.log('Post enviado com o body:: ', sourceB3, new Date());
+      response = (await postSource(`${urlBase}/data`, sourceB3, hashPost)).data;
+      console.log(
+        'Post enviado com o body:: ',
+        sourceB3,
+        new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+      );
+      message = 'The base has been updated successfully!!!';
       srcOld = sourceBase.src;
+    } else {
+      console.log(message);
     }
-    console.log('Fim da checagem', new Date());
+    console.log(
+      'Fim da checagem',
+      new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+    );
     return res.status(200).send({
       message,
       srcOld,
       src: sourceB3.src,
+      response,
     });
   } catch (error) {
     console.log(error.message);
